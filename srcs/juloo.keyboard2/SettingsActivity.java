@@ -24,11 +24,13 @@ public class SettingsActivity extends PreferenceActivity
     catch (Exception _e) { fallbackEncrypted(); return; }
     addPreferencesFromResource(R.xml.settings);
 
-    boolean foldableDevice = new FoldStateTracker(this).isFoldableDevice();
+    boolean foldableDevice = false;//new FoldStateTracker(this).isFoldableDevice();
     findPreference("margin_bottom_portrait_unfolded").setEnabled(foldableDevice);
     findPreference("margin_bottom_landscape_unfolded").setEnabled(foldableDevice);
     findPreference("horizontal_margin_portrait_unfolded").setEnabled(foldableDevice);
     findPreference("horizontal_margin_landscape_unfolded").setEnabled(foldableDevice);
+    findPreference("keyboard_height_unfolded").setEnabled(foldableDevice);
+    findPreference("keyboard_height_landscape_unfolded").setEnabled(foldableDevice);
   }
 
   void fallbackEncrypted()
